@@ -1,1 +1,1 @@
-web: gunicorn lamb.wsgi --log-file -
+web: gunicorn AECHackathon_LA.wsgi --log-file -
