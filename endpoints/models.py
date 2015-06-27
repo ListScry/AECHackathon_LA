@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class TagPackage(models.Model):
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    notes = models.TextField()
+    weather = models.TextField()
+    picture = models.TextField()
