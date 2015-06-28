@@ -141,7 +141,7 @@ function timedJSONReload(){
             }
         }
 
-        updatePreview(allMarkers[allMarkers.length-1]);
+        showNotification();
         updateSidebar();
     });
 }
@@ -161,5 +161,8 @@ function hideNotification() {
 //    showNotification();
 //});
 
-$(".newactivitynotification").click(hideNotification);
+$(".newactivitynotification").click(function(){
+    hideNotification();
+    updatePreview(allMarkers[allMarkers.length-1]);
+});
 
