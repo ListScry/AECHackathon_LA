@@ -2,4 +2,89 @@ html, body, #map-canvas {
         height: 100%;
         margin: 0px;
         padding: 0px;
+    background-color: #d3dbe5;
       }
+
+#wrapper {
+   margin: 1px auto;
+   padding: 0;
+   border: 2px solid black;
+   width: 580px;
+   height: 300px;
+}
+
+#centerImage {
+    position: absolute;
+    left:50%;
+    margin-left:-457px;
+}
+
+#map-canvas{
+    width:556px;
+    height:330px;
+    position: absolute;
+    margin-left: 111.5px;
+    margin-top:144px;
+}
+
+#numLabel1{
+    position: absolute;
+    margin-left:53px;
+    margin-top:151px;
+    text-align: center;
+
+    font-family: 'Roboto', medium;
+    font-size: 10px;
+    color: #ffffff;
+
+}
+#numLabel2{
+    position: absolute;
+    margin-left:53px;
+    margin-top:225px;
+    text-align: center;
+
+    font-family: 'Roboto', medium;
+    font-size: 10px;
+    color: #ffffff;
+
+}#numLabel3{
+    position: absolute;
+    margin-left:53px;
+    margin-top:360px;
+    text-align: center;
+
+    font-family: 'Roboto', medium;
+    font-size: 10px;
+    color: #ffffff;
+
+}
+ #numLabel4{
+    position: absolute;
+    margin-left:53px;
+    margin-top:492px;
+    text-align: center;
+
+    font-family: 'Roboto', medium;
+    font-size: 10px;
+    color: #ffffff;
+
+}
+
+ #timeLabel{
+     position: absolute;
+     margin-left:265px;
+     margin-top:535px;
+     font-family: 'Roboto', light;
+     font-size: 10px;
+     color: #9ba9bb;
+ }
+
+ #latLong{
+    position: absolute;
+     margin-left:182px;
+     margin-top:552px;
+     font-family: 'Roboto', light;
+     font-size: 10px;
+     color: #75859a;
+ }

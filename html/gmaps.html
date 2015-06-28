@@ -7,12 +7,39 @@
       <link rel="stylesheet" type="text/css" href="css/styles.css"
   </head>
   <body>
-  <center>
-    <div id="map-canvas" style="width:600px;height: 400px;"></div>
-  </center>
+
+
+  <div id="wrapper">
+<div style="text-align: center;margin-top:-3px;">
+    <img src="images/dashboard.png" width="913px" height="1016px;" id="centerImage"/>
+  </div>
+<div id="map-canvas"></div>
+      <div id="numLabel1" width="30px;">1</div>
+      <div id="numLabel2" width="30px">1</div>
+      <div id="numLabel3" width="30px">1</div>
+      <div id="numLabel4" width="30px">1</div>
+
+      <div id="timeLabel">12:50PM</div>
+      <div id="latLong">34.0731061,-118.44662299</div>
+
+</div>
+
+  <div style="">
+      ID:<span id="id"></span> <br/>
+      Notes:<span id="notes"></span> <br/>
+      Weather:<span id="weather"></span> <br/>
+      Picture:<span id="picture"></span> <br/>
+      Tagtype:<span id="tagtype"></span> <br/>
+      Timestamp:<span id="timestamp"></span> <br/>
+  </div>
+
+
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <script src="scripts/MAP.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100" rel="stylesheet" type="text/css">
+  <script src="scripts/ui.js"></script>
+  <script src="scripts/Marker.js"></script>
+  <script src="scripts/main.js"></script>
   </body>
 </html>
