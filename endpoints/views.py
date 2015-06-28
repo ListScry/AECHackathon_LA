@@ -35,7 +35,7 @@ def get_all_tag_packages(request):
     #return Response(serializer.data)
 
     first = True
-    response = "["
+    response = "'["
     for tp in all_tag_packages:
         if first:
             first = False
@@ -52,7 +52,7 @@ def get_all_tag_packages(request):
         response += "\"timestamp\": \"" + tp.timestamp.isoformat() + "\""
         response += "}"
 
-    response += "]"
+    response += "]'"
 
     return HttpResponse(response, content_type="application/json")
 
