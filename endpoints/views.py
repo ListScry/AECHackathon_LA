@@ -69,12 +69,24 @@ def submit_accelerometer_data(request):
     accelerometer_data = jsonpickle.decode(accelerometer_string)
 
     for a in accelerometer_data:
-        AccelerometerPoints.objects.create(x=a["x"], y=a["y"], z=a["z"])
+        AccelerometerPoints.objects.create(x=a[0], y=a[1], z=a[2])
 
     return HttpResponse("Success", content_type="application/json")
 
 @csrf_exempt
 def get_motion_plot(request):
+
+    a_data = AccelerometerPoints.objects.filter(id__gt=1, id__lt=100)
+
+    vx = 0
+    vy = 0
+    vz = 0
+
+    px = 0
+    py = 0
+    pz = 0
+
+
 
     response = "[{\"x\":-4.7,\"y\":-4.7,\"z\":-4.7},{\"x\":0.2,\"y\":0.2,\"z\":0.2},{\"x\":0.7,\"y\":0.7,\"z\":0.7}]"
 
