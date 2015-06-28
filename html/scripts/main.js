@@ -31,19 +31,29 @@ function init(){
     }
 
     loadJSON(function loadCallback(json){
+        console.log(json);
         allMarkers = []
     });
 };
 
-function loadJSON(callback){
+function loadJSON(callback) {
+    var url = "http://aeshackathon.herokuapp.com/endpoints/GetAllTagPackages/"
+
+    //var url = "https://public.opencpu.org/ocpu/library/";
     $.ajax({
         type: "GET",
-        url: "http://aeshackathon.herokuapp.com/endpoints/GetAllTagPackages/",
-        dataType: "json",
-        success: function(msg) {
-                callback(msg);
-            }
-    })
+        url:url,
+        success: function (msg) {
+            callback(msg);
+            console.log(msg);
+            console.log("HI1");
+        },
+        error: function (msg){
+            console.log(msg.responseText);
+            var data = JSON.parse(msg.responseText);
+        }
+        //dataType: "json"
+    });
 }
 
 google.maps.event.addDomListener(window, 'load', init());
