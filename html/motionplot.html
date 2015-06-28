@@ -25,8 +25,8 @@
     var renderer = new THREE.WebGLRenderer({
         antialias: true
     });
-    var w = 250;
-    var h = 250;
+    var w = 1000;
+    var h = 800;
     renderer.setSize(w, h);
     document.body.appendChild(renderer.domElement);
 
@@ -54,7 +54,7 @@
 
     var format = d3.format("+.3f");
 
-    var data = d3.json("http://127.0.0.1:8000/endpoints/GetMotionPlot/",function(d){
+    var data = d3.json("http://aeshackathon.herokuapp.com/endpoints/GetMotionPlot/",function(d){
     //TASK 1
     d.forEach(function (d,i) {
             unfiltered[i] = {
