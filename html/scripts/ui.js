@@ -1,8 +1,6 @@
 var updatePreview = function(marker){
-    $('#id').text(marker.id);
+    $('#timeLabel').text(marker.timestamp);
+    $('#latLong').text('' + marker.latitude + ', ' + marker.longitude);
     $('#notes').text(marker.notes);
-    $('#weather').text(marker.weather);
-    $('#picture').text(marker.picture);
-    $('#tagtype').text(marker.tagtype);
-    $('#timestamp').text(marker.timestamp);
+    $('#picture').attr('src','data:image/png;base64,' + marker.picture);
 }

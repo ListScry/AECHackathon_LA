@@ -88,3 +88,27 @@ html, body, #map-canvas {
      font-size: 10px;
      color: #75859a;
  }
+
+ #notes{
+     position: absolute;
+     margin-left:182px;
+     margin-top:568px;
+     font-family: 'Roboto', light;
+     font-size: 10px;
+     color: #64768f;
+     width:460px;
+     line-height: 170%;
+ }
+
+ #picture{
+     position: absolute;
+     margin-left:182px;
+     margin-top:647px;
+     font-family: 'Roboto', light;
+     font-size: 10px;
+     color: #64768f;
+     width:100px;
+     height:100px;
+     line-height: 170%;
+     background-color: black;
+ }

@@ -39,7 +39,7 @@ function loadJSON(callback){
     $.ajax({
         type: "GET",
         url: "http://aeshackathon.herokuapp.com/endpoints/GetAllTagPackages/",
-        dataType: "jsonp",
+        dataType: "json",
         success: function(msg) {
                 callback(msg);
             }

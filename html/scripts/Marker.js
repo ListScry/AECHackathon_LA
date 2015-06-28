@@ -6,6 +6,8 @@ function Marker (id,latitude, longitude, notes, weather, picture, tagtype, times
     this.picture = picture;
     this.tagtype = tagtype;
     this.timestamp = timestamp;
+    this.latitude = latitude;
+    this.longitude = longitude;
 
     var image = 'images/note.png';
 
