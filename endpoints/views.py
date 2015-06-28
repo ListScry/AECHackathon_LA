@@ -76,7 +76,7 @@ def submit_accelerometer_data(request):
 @csrf_exempt
 def get_motion_plot(request):
 
-    a_data = AccelerometerPoints.objects.filter(id__gt=1, id__lt=100)
+    a_data = AccelerometerPoints.objects.filter(id__gt=8740, id__lt=8760)
 
     vx = 0
     vy = 0
@@ -86,9 +86,27 @@ def get_motion_plot(request):
     py = 0
     pz = 0
 
+    first = True
+    response = "["
+    for a in a_data:
+        vx += a.x/10
+        vy += a.y/10
+        vz += a.z/1000
 
+        px += vx/10
+        py += vy/10
+        pz += vz/1000
 
-    response = "[{\"x\":-4.7,\"y\":-4.7,\"z\":-4.7},{\"x\":0.2,\"y\":0.2,\"z\":0.2},{\"x\":0.7,\"y\":0.7,\"z\":0.7}]"
+        if first:
+            first = False
+        else:
+            response += ","
+
+        response += "{\"x\":"+str(px)+",\"y\":"+str(py)+",\"z\":"+str(pz)+"}"
+
+    response += "]"
+
+    #response = "[{\"x\":-4.7,\"y\":-4.7,\"z\":-4.7},{\"x\":0.2,\"y\":0.2,\"z\":0.2},{\"x\":0.7,\"y\":0.7,\"z\":0.7}]"
 
     return HttpResponse(response, content_type="application/json")
 
