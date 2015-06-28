@@ -31,10 +31,20 @@ function init(){
     }
 
     loadJSON(function loadCallback(json){
-        console.log(json);
+        //console.log(json);
+        console.log(json[0]);
         allMarkers = []
     });
 };
+
+function escapeSpecialChars(jsonString) {
+
+    return jsonString.replace(/\n/g, "\\n")
+        .replace(/\r/g, "\\r")
+        .replace(/\t/g, "\\t")
+        .replace(/\f/g, "\\f");
+
+}
 
 function loadJSON(callback) {
     var url = "http://aeshackathon.herokuapp.com/endpoints/GetAllTagPackages/"
@@ -43,17 +53,19 @@ function loadJSON(callback) {
     $.ajax({
         type: "GET",
         url:url,
-        success: function (msg) {
+        /*success: function (msg) {
             callback(msg);
             console.log(msg);
             console.log("HI1");
-        },
+        },*/
         error: function (msg){
-            console.log(msg.responseText);
-            var data = JSON.parse(msg.responseText);
+            var data = JSON.stringify(msg.responseText);
+            var parsedData = JSON.parse(escapeSpecialChars(data));
+            callback(parsedData);
         }
-        //dataType: "json"
     });
+
+
 }
 
 google.maps.event.addDomListener(window, 'load', init());

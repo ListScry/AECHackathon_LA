@@ -54,6 +54,8 @@ def get_all_tag_packages(request):
 
     response += "]"
 
+    response = response.replace("\n","")
+
     return HttpResponse(response, content_type="application/json")
 
 
