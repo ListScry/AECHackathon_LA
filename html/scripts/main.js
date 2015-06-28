@@ -61,6 +61,8 @@ function init(){
 
         updatePreview(allMarkers[0]);
         updateSidebar();
+
+        setInterval(timedJSONReload, 5000);
     });
 };
 
@@ -71,6 +73,7 @@ function loadSidebarClickEvents(){
         showInjurymarkers = true;
 
         updateMapWithFilters();
+        return false;
     });
 
     $('#viewNotesButton').click(function(){
@@ -102,6 +105,13 @@ function loadJSON(callback) {
             callback(msg);
         },
         dataType: 'json'
+    });
+}
+
+
+function timedJSONReload(){
+    loadJSON(function(){
+        
     });
 }
 

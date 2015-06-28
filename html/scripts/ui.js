@@ -23,25 +23,29 @@ var updateSidebar = function(){
     // Injuries
     $('#numLabel4').text('' + injuryMarkers.length);
 
-    var noteVisiblity = 'hidden';
-    var issueVisibility = 'hidden'
-    var injuryVisibility = 'hidden'
+    var hiddenStr = 'hidden';
+    var visibleStr = 'visible';
+
+    var noteVisiblity = visibleStr;
+    var issueVisibility = visibleStr;
+    var injuryVisibility = visibleStr;
 
     if( showNoteMarkers ){
-        noteVisiblity = '';
+        noteVisiblity = hiddenStr;
     }
 
     if( showIssueMarkers ){
-
+        issueVisibility = hiddenStr;
     }
 
     if( showInjurymarkers ){
-
+        injuryVisibility = hiddenStr;
     }
 
-
-
-
+    console.log(noteVisiblity);
+    $('#switchOffNotes').css("visibility", noteVisiblity);
+    $('#switchOffIssues').css("visibility", issueVisibility);
+    $('#switchOffInjuries').css("visibility", injuryVisibility);
 };
 
 var updateMapWithFilters = function(){
@@ -72,5 +76,7 @@ var updateMapWithFilters = function(){
             marker.show();
         }
     }
+
+    updateSidebar();
 };
 
