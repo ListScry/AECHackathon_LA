@@ -26,15 +26,9 @@ function init(){
 
     // Fill up the map
     loadJSON(function loadCallback(json){
-        //console.log(json);
-        allMarkers = [];
-        injuryMarkers = [];
-        noteMarkers = [];
-        issueMarkers = [];
-
         // Fill the map
         var newMarker,jsonObj;
-        for(var i = 0; i < json.length; i ++){
+        for(var i = 0; i < json.length-2; i ++){
             jsonObj = json[i];
             id = i;
             latitude = jsonObj['latitude'];
@@ -110,8 +104,45 @@ function loadJSON(callback) {
 
 
 function timedJSONReload(){
-    loadJSON(function(){
-        
+    loadJSON(function loadCallback(json) {
+        var newAllMarkers = [];
+
+        var totalNewMarkers = json.length - allMarkers.length;
+        if( totalNewMarkers <= 0 ){
+            console.log("no new markers");
+            return;
+        }else{
+            console.log("" + totalNewMarkers + " new markers");
+        }
+
+        // Fill the map
+        var newMarker, jsonObj;
+        for (var i = allMarkers.length-1; i < json.length; i++) {
+            jsonObj = json[i];
+            console.log(jsonObj);
+            id = i;
+            latitude = jsonObj['latitude'];
+            longitude = jsonObj['longitude'];
+            tagtype = jsonObj['type'];
+            notes = jsonObj['notes'];
+            weather = 'INSERT WEATHER HERE';
+            picture = jsonObj['picture'];
+            timestamp = new Date(jsonObj['timestamp']);
+            newMarker = new Marker(id, latitude, longitude, notes,
+                weather, picture, tagtype, timestamp);
+            allMarkers.push(newMarker);
+
+            if (tagtype == TAG_TYPE_NOTE) {
+                noteMarkers.push(newMarker);
+            } else if (tagtype == TAG_TYPE_ISSUE) {
+                issueMarkers.push(newMarker);
+            } else if (tagtype == TAG_TYPE_INJURY) {
+                injuryMarkers.push(newMarker);
+            }
+        }
+
+        updatePreview(allMarkers[allMarkers.length-1]);
+        updateSidebar();
     });
 }
 

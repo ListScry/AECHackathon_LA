@@ -2,7 +2,7 @@
 
 var updatePreview = function(marker){
     //var displayTime = Globalize.format(marker.timestamp, "HH:mm p");
-    var displayTime = marker.timestamp
+    var displayTime = marker.timestamp;
 
     $('#timeLabel').text(displayTime);
     $('#latLong').text('' + marker.latitude + ', ' + marker.longitude);
@@ -11,6 +11,7 @@ var updatePreview = function(marker){
 };
 
 var updateSidebar = function(){
+    console.log("len" + allMarkers.length);
     // View All
     $('#numLabel1').text('' + allMarkers.length);
 
