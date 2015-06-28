@@ -28,7 +28,7 @@ function init(){
     loadJSON(function loadCallback(json){
         // Fill the map
         var newMarker,jsonObj;
-        for(var i = 0; i < json.length-2; i ++){
+        for(var i = 0; i < json.length; i ++){
             jsonObj = json[i];
             id = i;
             latitude = jsonObj['latitude'];
