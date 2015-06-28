@@ -6,3 +6,5 @@ class TagPackage(models.Model):
     notes = models.TextField()
     weather = models.TextField()
     picture = models.TextField()
+    tag_type = models.IntegerField()
+    timestamp = models.DateTimeField(auto_now_add=True)

@@ -17,13 +17,14 @@ def create_tag_package(request):
     longitude = params["longitude"]
     notes = params["notes"]
     picture = params["picture"]
+    tag_type = params["type"]
 
-    TagPackage.objects.create(latitude=latitude, longitude=longitude, notes=notes, weather="", picture=picture)
+    TagPackage.objects.create(latitude=latitude, longitude=longitude, notes=notes, weather="", picture=picture,
+                              tag_type=tag_type)
 
     return HttpResponse("Success", content_type="application/json")
 
 @csrf_exempt
-@require_POST
 def get_all_tag_packages(request):
 
     all_tag_packages = TagPackage.objects.all()
@@ -46,7 +47,9 @@ def get_all_tag_packages(request):
         response += "\"longitude\":" + str(tp.longitude) + ","
         response += "\"notes\": \"" + tp.notes + "\","
         response += "\"weather\": \"" + tp.weather + "\","
-        response += "\"picture\": \"" + tp.picture + "\""
+        response += "\"picture\": \"" + tp.picture + "\","
+        response += "\"type\": \"" + str(tp.tag_type) + ","
+        response += "\"timestamp\": \"" + tp.timestamp + "\""
         response += "}"
 
     response += "]"
