@@ -149,4 +149,17 @@ function timedJSONReload(){
 google.maps.event.addDomListener(window, 'load', init());
 
 
+function showNotification() {
+    $("#newnotificationimg").delay(100).show().animate({opacity: 1, top:"0px"},'slow');
+}
+function hideNotification() {
+    $("#newnotificationimg").delay(100).animate({opacity: 1, top:"-93px"},'slow').hide();
+}
+
+
+//$("#test-weather").click(function() {
+//    showNotification();
+//});
+
+$(".newactivitynotification").click(hideNotification);
 

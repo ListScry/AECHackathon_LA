@@ -168,3 +168,19 @@ html, body, #map-canvas {
     margin-top: 541px;
     margin-left:36.5px;
 }
+
+.newactivitynotification {
+    width: 913px;
+    position: relative;
+    margin: 0 auto;
+}
+#newnotificationimg {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    width: 913px;
+    height: 93px;
+    top:-93px;
+    left: -1px;
+    z-index: 9999999999;
+}
