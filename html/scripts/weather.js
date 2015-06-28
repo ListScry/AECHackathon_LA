@@ -13,7 +13,7 @@ var getWeatherData = function(lat, long, timestamp, callback){
             humidity = data["list"][0]["main"]["humidity"];
             windspeed = data["list"][0]["wind"]["speed"];
 
-            weatherResult = "Weather Report: " + description  + ", the temperature was " + temp +
+            weatherResult = "" + description  + ", the temperature was " + temp +
                             ", humidity was " + humidity +
                             " and wind speed was " + windspeed;
             callback(weatherResult);

@@ -8,6 +8,13 @@ var updatePreview = function(marker){
     $('#latLong').text('' + marker.latitude + ', ' + marker.longitude);
     $('#notes').text(marker.notes);
     $('#picture').attr('src','data:image/png;base64,' + marker.picture);
+
+     $('#weather').text('...');
+    getWeatherData(marker.latitude,marker.longitude,marker.timestamp,function(val){
+      $('#weather').text(val);
+    })
+
+
 };
 
 var updateSidebar = function(){
