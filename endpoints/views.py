@@ -48,7 +48,7 @@ def get_all_tag_packages(request):
         response += "\"notes\": \"" + tp.notes + "\","
         response += "\"weather\": \"" + tp.weather + "\","
         response += "\"picture\": \"" + tp.picture + "\","
-        response += "\"type\": \"" + str(tp.tag_type) + ","
+        response += "\"type\": " + str(tp.tag_type) + ","
         response += "\"timestamp\": \"" + tp.timestamp.isoformat() + "\""
         response += "}"
 
