@@ -38,16 +38,13 @@ function Marker (id,latitude, longitude, notes, weather, picture, tagtype, times
 }
 
 Marker.prototype.markerClicked = function(){
-    console.log('Clicked' + this.obj.id);
     updatePreview(this.obj);
 };
 
 Marker.prototype.show = function(){
-    console.log('show');
-    this.obj.mapMarker.setMap(null);
+    this.mapMarker.setVisible(true);
 }
 
-Marker.prototype.show = function(){
-    console.log('hide');
-    this.obj.mapMarker.setMap(map);
+Marker.prototype.hide = function(){
+    this.mapMarker.setVisible(false);
 }

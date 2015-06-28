@@ -43,7 +43,7 @@ function init(){
             notes = jsonObj['notes'];
             weather = 'INSERT WEATHER HERE';
             picture = jsonObj['picture'];
-            timestamp = new Date();
+            timestamp = new Date(jsonObj['timestamp']);
             newMarker = new Marker(id,latitude,longitude,notes,
                                     weather,picture,tagtype,timestamp);
             allMarkers.push(newMarker);
@@ -66,19 +66,29 @@ function init(){
 
 function loadSidebarClickEvents(){
     $('#viewAllButton').click(function(){
-        console.log('clicked');
+        showNoteMarkers = true;
+        showIssueMarkers = true;
+        showInjurymarkers = true;
+
+        updateMapWithFilters();
     });
 
     $('#viewNotesButton').click(function(){
-        console.log('clicked');
+        showNoteMarkers = !showNoteMarkers;
+        updateMapWithFilters();
+        return false;
     });
 
     $('#viewIssuesButton').click(function(){
-        console.log('clicked');
+        showIssueMarkers = !showIssueMarkers;
+        updateMapWithFilters();
+        return false;
     });
 
     $('#viewInjuriesButton').click(function(){
-        console.log('clicked');
+        showInjurymarkers = !showInjurymarkers;
+        updateMapWithFilters();
+        return false;
     });
 }
 
