@@ -8,5 +8,7 @@ from django.contrib import admin
 urlpatterns = patterns('',
     url(r"^CreateTagPackage/$", views.create_tag_package),
     url(r"^GetAllTagPackages/$", views.get_all_tag_packages),
+    url(r"^SubmitAccelerometerData/$", views.submit_accelerometer_data),
+    url(r"^GetMotionPlot/$", views.get_motion_plot),
     url(r'^$', views.index, name='index'),
 )

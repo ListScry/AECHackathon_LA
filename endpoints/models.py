@@ -8,3 +8,8 @@ class TagPackage(models.Model):
     picture = models.TextField()
     tag_type = models.IntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
+
+class AccelerometerPoints(models.Model):
+    x = models.FloatField()
+    y = models.FloatField()
+    z = models.FloatField()

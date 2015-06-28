@@ -58,6 +58,28 @@ def get_all_tag_packages(request):
 
     return HttpResponse(response, content_type="application/json")
 
+@csrf_exempt
+@require_POST
+def submit_accelerometer_data(request):
+
+    # get the post's params
+    params = request.POST
+    accelerometer_string = params["accelerometer"]
+
+    accelerometer_data = jsonpickle.decode(accelerometer_string)
+
+    for a in accelerometer_data:
+        AccelerometerPoints.objects.create(x=a["x"], y=a["y"], z=a["z"])
+
+    return HttpResponse("Success", content_type="application/json")
+
+@csrf_exempt
+def get_motion_plot(request):
+
+    response = "[{\"x\":-4.7,\"y\":-4.7,\"z\":-4.7},{\"x\":0.2,\"y\":0.2,\"z\":0.2},{\"x\":0.7,\"y\":0.7,\"z\":0.7}]"
+
+    return HttpResponse(response, content_type="application/json")
+
 
 def test_endpoint(request):
     return HttpResponse("Test endpoint")
