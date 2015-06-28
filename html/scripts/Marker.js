@@ -9,15 +9,27 @@ function Marker (id,latitude, longitude, notes, weather, picture, tagtype, times
     this.latitude = latitude;
     this.longitude = longitude;
 
-    var image = 'images/note.png';
+    var markerIcon;
+    var image = '';
+
+    switch(this.tagtype){
+        case TAG_TYPE_NOTE:
+            markerIcon = 'images/note.png';
+            break;
+        case TAG_TYPE_ISSUE:
+            markerIcon = 'images/injury.png';
+            break;
+        case TAG_TYPE_INJURY:
+            markerIcon = 'images/issue.png';
+            break;
+    }
 
     this.mapMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(-25.363882,131.044922),
-        // position: new google.maps.LatLng(latitude,longitude),
+        position: new google.maps.LatLng(latitude,longitude),
         map: map,
-        title: 'Hello World!',
+        title: '',
         animation: google.maps.Animation.DROP,
-        icon:image
+        icon:markerIcon
     });
     this.mapMarker.obj = this;
 
@@ -29,3 +41,13 @@ Marker.prototype.markerClicked = function(){
     console.log('Clicked' + this.obj.id);
     updatePreview(this.obj);
 };
+
+Marker.prototype.show = function(){
+    console.log('show');
+    this.obj.mapMarker.setMap(null);
+}
+
+Marker.prototype.show = function(){
+    console.log('hide');
+    this.obj.mapMarker.setMap(map);
+}

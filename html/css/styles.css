@@ -112,3 +112,40 @@ html, body, #map-canvas {
      line-height: 170%;
      background-color: black;
  }
+
+ #viewAllButtonContents{
+     position:absolute;
+     width:160px;
+     height:35px;
+     margin-top: 140px;
+     margin-left:-90px;
+     background-color: black;
+ }
+
+  #viewNotesButtonContents{
+     position:absolute;
+     width:160px;
+     height:95px;
+     margin-top: 210px;
+     margin-left:-90px;
+     background-color: black;
+ }
+
+   #viewIssuesButtonContents{
+     position:absolute;
+     width:160px;
+     height:95px;
+     margin-top: 340px;
+     margin-left:-90px;
+     background-color: black;
+ }
+
+    #viewInjuriesButtonContents{
+     position:absolute;
+     width:160px;
+     height:95px;
+     margin-top: 475px;
+     margin-left:-90px;
+     background-color: black;
+ }
+
